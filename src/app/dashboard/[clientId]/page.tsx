@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Margin from "./margin";
 import Positions from "./positions";
+import { API_ENDPOINTS, WEBSOCKET_URL } from "../../../constants/apiConstants";
 
 const Dashboard = () => {
   const params = useParams();
@@ -16,8 +17,8 @@ const Dashboard = () => {
     const fetchData = async () => {
       try {
         const [marginResponse, marketDataResponse] = await Promise.all([
-          fetch(`http://127.0.0.1:8000/api/margin-status/${clientId}`),
-          fetch(`http://127.0.0.1:8000/api/market-data/client/${clientId}`),
+          fetch(API_ENDPOINTS.MARGIN_STATUS(clientId)),
+          fetch(API_ENDPOINTS.MARKET_DATA(clientId)),
         ]);
 
         if (!marginResponse.ok || !marketDataResponse.ok) {
@@ -42,7 +43,7 @@ const Dashboard = () => {
 
   // WebSocket connection
   useEffect(() => {
-    const ws = new WebSocket(`ws://127.0.0.1:8000/ws/${clientId}`);
+    const ws = new WebSocket(WEBSOCKET_URL(clientId));
 
     ws.onopen = () => console.log("Connected to WebSocket");
 

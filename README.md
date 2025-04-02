@@ -1,6 +1,57 @@
+# Risk Monitoring System Frontend
+
+This is the frontend for the Risk Monitoring System, built with Next.js. It provides an interactive UI for viewing client positions, market data, and real-time risk metrics. The frontend fetches data from the backend via REST APIs and listens for real-time updates through WebSockets.
+
+## Overview
+
+This application is a risk monitoring system built with the following architecture:
+
+- **Frontend**: Next.js
+- **Backend**: FastAPI
+- **Real-time Updates**: WebSockets
+- **Data Provider**: Twelve Data API for financial data
+
+The system is designed to provide real-time updates and insights based on market data. It retrieves data from the Twelve Data API and pushes updates to the frontend through WebSockets.
+
+## Architecture
+
+### Frontend (Next.js)
+
+The frontend is built using **Next.js**, a React framework that enables server-side rendering, static site generation, and easy routing. The frontend interacts with the backend through API endpoints and subscribes to WebSocket connections for real-time data updates.
+
+**Key Features**:
+
+- Fetching and displaying market data via RESTful APIs
+- Real-time updates via WebSocket connections
+- Responsive and user-friendly interface
+
+### Backend (FastAPI)
+
+The backend is built using **FastAPI**, a modern web framework for Python that allows for fast API development with automatic validation and asynchronous support. The backend is responsible for:
+
+- Interfacing with the Twelve Data API to retrieve market data
+- Providing endpoints to fetch historical and real-time market data
+- Establishing WebSocket connections for real-time updates to the frontend
+
+**Key Features**:
+
+- REST API for data retrieval
+- WebSocket implementation for real-time updates
+- Integration with Twelve Data API for market data
+
+### Real-time Data Updates (WebSockets)
+
+To provide real-time updates, the backend uses **WebSockets**. The frontend listens to the WebSocket connection to get live data feeds and updates the UI dynamically.
+
+### Data Retrieval (Twelve Data API)
+
+The system retrieves financial data from the **Twelve Data API**, which offers real-time and historical stock market data. The API is used to fetch market data for display and analysis.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
+
+### Option 1: Using npm
 
 First, run the development server:
 
@@ -16,21 +67,33 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Option 2: Using Docker
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Build and Start the Application**  
+   Run the following command to build and start the application using Docker:
 
-## Learn More
+   ```bash
+   docker-compose up --build
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. **Access the Application**  
+   Once the application is running, open your browser and navigate to:
+   ```
+   http://localhost:3000
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Accessing the Dashboard
 
-## Deploy on Vercel
+1. **Start the Application**  
+   Follow the steps above to start the application using either npm or Docker.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Create a client using backend API**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Navigate to the Dashboard**  
+   Open your browser and go to:
+
+   ```
+   http://localhost:3000/dashboard/:client_id
+   ```
