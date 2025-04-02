@@ -2,6 +2,9 @@
 
 This is the frontend for the Risk Monitoring System, built with Next.js. It provides an interactive UI for viewing client positions, market data, and real-time risk metrics. The frontend fetches data from the backend via REST APIs and listens for real-time updates through WebSockets.
 
+![Frontend Demo](https://github.com/user-attachments/assets/54d5727a-a3b1-4dc7-8c81-067d0c1ebd4f)
+
+
 ## Overview
 
 This application is a risk monitoring system built with the following architecture:
