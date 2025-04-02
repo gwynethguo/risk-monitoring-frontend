@@ -90,6 +90,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
    Follow the steps above to start the application using either npm or Docker.
 
 2. **Create a client using backend API**
+   Visit [https://github.com/gwynethguo/risk-monitoring-backend](https://github.com/gwynethguo/risk-monitoring-backend) for more information on how to access the APIs and the API docs.
 
 3. **Navigate to the Dashboard**  
    Open your browser and go to:
