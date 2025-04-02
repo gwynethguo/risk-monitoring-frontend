@@ -53,19 +53,28 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ### Option 1: Using npm
 
-First, run the development server:
+1. **Install Dependencies**  
+   Run the following command to install the required dependencies:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+   ```bash
+   npm install
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Run the Development Server**  
+   Start the development server with:
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   # or
+   bun dev
+   ```
+
+3. **Access the Application**  
+   Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ### Option 2: Using Docker
 
