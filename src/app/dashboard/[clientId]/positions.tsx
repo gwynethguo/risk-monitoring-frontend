@@ -9,24 +9,21 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import React from "react";
-
-const convertToLocalTime = (timestamp) => {
-  const date = new Date(timestamp);
-  return date.toLocaleString();
-};
+import { convertToLocalTime } from "./utils";
 
 const Positions = ({ marketData }) => {
   console.log(marketData);
   return (
     <Card className="p-5">
-      <CardTitle className="font-bold text-3xl">Latest Market Data</CardTitle>
+      <CardTitle className="font-bold text-3xl">Positions</CardTitle>
       <Table className="w-full">
         <TableHeader>
           <TableRow>
             <TableHead>Symbol</TableHead>
             <TableHead>Exchange</TableHead>
+            <TableHead>Quantity</TableHead>
             <TableHead>Price</TableHead>
-            <TableHead>Latest Timestamp</TableHead>
+            <TableHead>Last Update</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -34,8 +31,11 @@ const Positions = ({ marketData }) => {
             <TableRow key={data.id}>
               <TableCell>{data.symbol}</TableCell>
               <TableCell>{data.exchange}</TableCell>
+              <TableCell>{data.quantity}</TableCell>
               <TableCell>{data.price}</TableCell>
-              <TableCell>{convertToLocalTime(data.timestamp)}</TableCell>
+              <TableCell>
+                {convertToLocalTime(new Date().toISOString())}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

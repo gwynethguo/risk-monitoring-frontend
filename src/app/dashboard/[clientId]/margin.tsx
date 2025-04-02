@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { convertToLocalTime } from "./utils";
 
 const addCurrency = (value) => {
   return (
@@ -19,9 +20,13 @@ const addCurrency = (value) => {
 const Margin = ({ marginStatus }) => {
   return (
     <Card>
-      <CardTitle>
-        <div className="text-3xl font-bold px-6">Margin Status</div>
+      <CardTitle className="px-7">
+        <div className="text-3xl font-bold">Margin Status</div>
       </CardTitle>
+      <CardDescription className="px-7">
+        <span className="font-bold">Last updated: </span>
+        {convertToLocalTime(new Date().toISOString())}
+      </CardDescription>
       <CardContent>
         <div className="flex flex-col gap-4">
           <Card className="w-fit">
@@ -38,7 +43,7 @@ const Margin = ({ marginStatus }) => {
               Margin Shortfall
             </CardFooter>
           </Card>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-4">
             <Card className="w-fit">
               <CardContent className={`text-4xl font-bold `}>
                 {addCurrency(marginStatus.portfolio_market_value)}
